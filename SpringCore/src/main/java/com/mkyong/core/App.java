@@ -1,6 +1,7 @@
 package com.mkyong.core;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.mkyong.config.AppConfig;
@@ -8,7 +9,7 @@ import com.mkyong.config.AppConfig;
 public class App {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		// Testing for Bean Scopes such as SINGLETON(default) and PROTOTYPE
 		CustomerBo cust1 = (CustomerBo) context.getBean("customer");
@@ -26,5 +27,7 @@ public class App {
 		SchedulerBo sch2 = (SchedulerBo) context.getBean("scheduler");
 		System.out.println(sch2.toString());
 		System.out.println("Prototype SCOPE test for Scheduler : " + (sch1==sch2));
+		
+		context.close();
 	}
 }
