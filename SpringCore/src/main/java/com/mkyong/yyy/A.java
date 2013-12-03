@@ -2,6 +2,7 @@ package com.mkyong.yyy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,6 @@ public class A {
 
 	private B bbb;
 	private C ccc;
-	private static ApplicationContext context;
 	
 	public A() {
 		System.out.println("creating bean A: " + this);
@@ -32,7 +32,8 @@ public class A {
 	}
 	
 	public static void main(String[] args) {
-		context = new ClassPathXmlApplicationContext("spring-config.xml");
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 		context.getBean("A");
+		context.close();
 	}
 }
