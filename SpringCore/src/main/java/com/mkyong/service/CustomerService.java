@@ -7,7 +7,7 @@ import com.mkyong.dao.CustomerDAO;
 
 @Service
 public class CustomerService {
-	@Autowired
+	@Autowired(required=false)
 	CustomerDAO customerDAO;
 	
 	public CustomerService() {
