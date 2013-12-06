@@ -12,8 +12,15 @@ public class Application {
 				ClassPathXmlApplicationContext("classpath:spring-config.xml");
 
         MessageCommunicator communicator = (MessageCommunicator) ctx.getBean("messageCommunicator");
+        System.out.println("--------------------------------");
         communicator.deliver("Hello World");
+        System.out.println("--------------------------------");
         communicator.deliver("Marco", "Hello World");
+        System.out.println("--------------------------------");
+        communicator.deliver(true);
+        System.out.println("--------------------------------");
+        communicator.deliver();
+        System.out.println("--------------------------------");
         
         ctx.close();
 	}
