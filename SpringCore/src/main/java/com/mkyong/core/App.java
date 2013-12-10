@@ -8,6 +8,7 @@ import com.mkyong.config.AppConfig;
 public class App {
 
 	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		// Testing for Bean Scopes such as SINGLETON(default) and PROTOTYPE
@@ -26,5 +27,8 @@ public class App {
 		SchedulerBo sch2 = (SchedulerBo) context.getBean("scheduler");
 		System.out.println(sch2.toString());
 		System.out.println("Prototype SCOPE test for Scheduler : " + (sch1==sch2));
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println(((endTime - startTime)/1000.00));
 	}
 }
