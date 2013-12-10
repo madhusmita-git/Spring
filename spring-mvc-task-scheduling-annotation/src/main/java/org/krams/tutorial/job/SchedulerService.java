@@ -16,7 +16,7 @@ public class SchedulerService {
 	protected static Logger logger = Logger.getLogger("service");
 
 	@Autowired
-	@Qualifier("syncWorker")
+	@Qualifier("asyncWorker")
 	private Worker worker;
 	
 	/**
