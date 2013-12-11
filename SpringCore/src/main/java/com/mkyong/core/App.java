@@ -1,6 +1,6 @@
 package com.mkyong.core;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.mkyong.config.AppConfig;
@@ -9,7 +9,7 @@ public class App {
 
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
-		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		// Testing for Bean Scopes such as SINGLETON(default) and PROTOTYPE
 		CustomerBo cust1 = (CustomerBo) context.getBean("customer");
@@ -30,5 +30,7 @@ public class App {
 		
 		long endTime = System.currentTimeMillis();
 		System.out.println(((endTime - startTime)/1000.00));
+		
+		context.close();
 	}
 }
