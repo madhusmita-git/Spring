@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class Customer {
 	//@Value("${customer.custid}")
-	private int custId;
+	private long custId;
 	
 	//@Value("${customer.name}")
 	private String name;
 	
 	//@Value("${customer.age}")
-	private int age;
+	private long age;
 	
 	//private Properties properties;
  
@@ -29,11 +29,11 @@ public class Customer {
 		this.age = age;
 	}
 
-	public int getCustId() {
+	public long getCustId() {
 		return custId;
 	}
 	
-	public void setCustId(int custId) {
+	public void setCustId(long custId) {
 		this.custId = custId;
 	}
 
@@ -45,11 +45,11 @@ public class Customer {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public long getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(long age) {
 		this.age = age;
 	} 
 	

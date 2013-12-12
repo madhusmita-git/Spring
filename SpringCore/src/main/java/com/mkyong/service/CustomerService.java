@@ -1,6 +1,9 @@
 package com.mkyong.service;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.DateFormatSymbols;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.Random;
 
@@ -33,7 +36,7 @@ public class CustomerService {
 		Customer custBean = (Customer) ctx.getBean("customer", custId, 
 				custProp.getProperty("customer.name") + custId, 
 				Integer.parseInt(custProp.getProperty("customer.age")) + custId);
-		System.out.println(custBean);
+		
 		custDao.insert(custBean);	
 		
 		Customer customer1 = custDao.findByCustomerId(custId);
