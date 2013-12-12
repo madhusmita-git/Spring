@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	
 	<!-- <util:properties id="datasourceProp" location="datasource.properties customer_default.properties" /> -->
-	<context:property-placeholder location="datasource.properties"
+	<context:property-placeholder location="database/datasource.properties"
 		ignore-unresolvable="false" />
 	
 	<bean id="dataSource"

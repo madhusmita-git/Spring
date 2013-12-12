@@ -1,9 +1,7 @@
-package com.mkyong.service;
+package com.mkyong.common;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.DateFormatSymbols;
-import java.util.Locale;
+
 import java.util.Properties;
 import java.util.Random;
 
@@ -13,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mkyong.dao.ICustomerDAO;
 import com.mkyong.model.Customer;
 
-public class CustomerService {
+public class CustomerApp {
 
 	public static void main(String args[]) {
 		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("Spring-config.xml");
@@ -24,7 +22,7 @@ public class CustomerService {
 		
 		Properties custProp = new Properties();
 		try {
-			custProp.load(CustomerService.class.getResourceAsStream("../../../customer/customer_default.properties"));
+			custProp.load(CustomerApp.class.getResourceAsStream("../../../customer/customer_default.properties"));
 			System.out.println("CUSTID: " + custProp.getProperty("customer.custid"));
 			System.out.println("NAME: " + custProp.getProperty("customer.name"));
 			System.out.println("AGE: " + custProp.getProperty("customer.age"));
